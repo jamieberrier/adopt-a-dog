@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import 'fontsource-roboto';
 import './App.css';
 import { fetchDogs } from './services/dogs';
 
