@@ -24,7 +24,8 @@ export function fetchDogs() {
       ],
       'fields':
       [
-        'animalID','animalName', 'animalBreed', 'animalDescription', 'animalSex', 'animalThumbnailUrl', 'animalLocation', 'animalGeneralAge'
+        'animalID','animalName', 'animalBreed', 'animalDescriptionPlain', 
+        'animalSex', 'animalLocation', 'animalGeneralAge', 'animalPictures'
       ]
     }
   }
