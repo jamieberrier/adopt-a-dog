@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import logo from './logo.svg';
 import 'fontsource-roboto';
 import './App.css';
 import { fetchDogs } from './services/dogs';
+import DogCard from './components/DogCard';
 
 function App() {
   // Declare new state variables: isLoading, dogs
@@ -19,21 +21,25 @@ function App() {
     return () => setIsLoading(true);
   }, [])
 
+  const dogCards = dogs.map((dog, index) => (
+    <div key={index}>
+      <DogCard key={dog.animalID.toString()} dog={dog} />
+      <br></br>
+    </div>
+  ))
+
   return (
     <div className="App">
       <header className="App-header">
-        {isLoading && <p>Loading...</p>}
-        {dogs.map(dog => (
-          <div>
-            <h3>
-              <a href={dog.locationUrl}>{dog.animalName}</a>
-            </h3>
-            <img src={dog.animalThumbnailUrl} alt={dog.animalDescription} />
-            <p>{dog.animalGeneralAge} {dog.animalSex} {dog.animalBreed}</p>
-            <p>zip: {dog.animalLocation}</p>
-          </div>
-        ))}
+        Adopt Me
       </header>
+      {isLoading && 
+        <>
+          <p className="App-link">Loading...</p>
+          <img src={logo} className="App-logo" alt="logo" />
+        </>
+      }
+      {dogCards}
     </div>
   );
 }
